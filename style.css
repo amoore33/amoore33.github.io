@@ -1,3 +1,10 @@
+:root {
+    --text-white: #eeffee;
+    --text-black: #110011;
+    --text-red: #ff3366;
+    --text-blue: #373799;
+}
+
 @font-face {
     font-family: 'Inter';
     font-weight: 100 900;
@@ -18,11 +25,152 @@
 }
 
 body {
-    background-color: #373799;
-    color: #eeffee;
+    background-color: var(--text-blue);
+    color: var(--text-white);
     font-family: 'Inter', sans-serif;
+    line-height: initial;
+}
+
+::selection {
+    color: var(--text-black);
+    background-color: var(--text-white);
 }
 
 h1 {
     font-weight: 700;
+    /* font-size: 3em; */
+}
+
+@keyframes fadeinleft {
+    0% {opacity: 0%; left: -2em;}
+    100% {opacity: 100%; left: 0;}
+}
+@keyframes fadeinright {
+    0% {opacity: 0%; right: -2em;}
+    100% {opacity: 100%; right: 0;}
+}
+@keyframes fadeinup {
+    0% {opacity: 0%; bottom: -2em;}
+    100% {opacity: 100%; bottom: 0;}
+}
+
+.links {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    font-style: italic;
+    padding: 1em;
+    padding-bottom: 1em;
+    animation: fadeinleft 1s;
+}
+
+.links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@keyframes hl {
+    0% {background-position: 0% 0%;}
+    100% {background-position: -100% 75%; font-weight: 700;}
+}
+
+.links a:hover {
+    color: var(--text-black);
+    /* background-color: var(--text-white); */
+    background-image: linear-gradient(to right, transparent 50%, var(--text-white) 50%), linear-gradient(transparent 60%, var(--text-white) 40%);
+    background-size: 200%;
+    animation: hl .5s forwards;
+}
+
+.greetings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    animation: fadeinright 1s;
+}
+
+dl {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.25em;
+    font-stretch: 200%;
+    position: relative;
+}
+
+dd {
+    margin-left: 1em;
+}
+
+.redbar {
+    width: 100%;
+    background-color: var(--text-red);
+    display: flex;
+    min-height: 2em;
+    color: var(--text-black);
+    align-items: center;
+    justify-content: center;
+    /* font-style: italic; */
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+@keyframes weight {
+    0% {font-weight: 200;}
+    50% {font-weight: 900;}
+    100% {font-weight: 200;}
+}
+
+.stretch-container {
+    font-family: 'Inconsolata', monospace;
+    font-size: 5em;
+    line-height: 1;
+    font-weight: 200;
+    animation: weight 3s infinite;
+}
+
+@keyframes stretch0 {
+    0% {font-stretch: 200%;}
+    50% {font-stretch: 100%;}
+    100% {font-stretch: 200%;}
+}
+@keyframes stretch1 {
+    0% {font-stretch: 100%;}
+    50% {font-stretch: 200%;}
+    100% {font-stretch: 100%;}
+}
+
+.stretch {
+    font-stretch: 200%;
+}
+
+.stretch-0 {
+    font-stretch: 200%;
+    animation: stretch0 2s infinite;
+}
+
+.stretch-1 {
+    font-stretch: 100%;
+    animation: stretch1 2s infinite;
+}
+
+.stretch-2 {
+    font-stretch: 200%;
+    animation: stretch0 2s 0.25s infinite;
+}
+
+.stretch-3 {
+    font-stretch: 100%;
+    animation: stretch1 2s 0.25s infinite;
+}
+
+.stretch-4 {
+    font-stretch: 200%;
+    animation: stretch0 2s 0.5s infinite;
+}
+
+.stretch-5 {
+    font-stretch: 100%;
+    animation: stretch1 2s 0.5s infinite;
 }
